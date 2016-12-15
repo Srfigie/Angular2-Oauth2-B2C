@@ -1,0 +1,60 @@
+﻿<h2>B2C Sample</h2>
+<p>B2C implicit flow for angular Application!</p>
+<div>
+    
+    <h3>{{userClaims}}</h3>
+
+    <div class="row">
+        <h2>Sign in Or sign up Policy</h2>
+        <div class="col-md-4">
+            <button (click)="loginOrSignUp()">Log In</button>
+        </div>
+        <div class="col-md-4">
+            <button (click)="logoutSignUp()">Logout</button>
+        </div>
+    </div>
+    <div class="row">
+        <h2>Edit Profile Policy</h2>
+        <div class="col-md-4">
+            <button (click)="editProfile()">Log In</button>
+        </div>
+        <div class="col-md-4">
+            <button (click)="logoutEditProfile()">Logout</button>
+        </div>
+    </div>
+    <div class="row">
+        <h2>Sign In Policy</h2>
+        <div class="col-md-4">
+            <button (click)="login()">Log In</button>
+        </div>
+        <div class="col-md-4">
+            <button (click)="logout()">Logout</button>
+        </div>
+    </div>
+    
+    <p>Info: <strong>{{authMsg}}</strong></p>
+    <p>{{statusText}}</p>
+
+    <div *ngIf="validToken">
+        <button (click)="postTask()">Post Task</button>
+        <button (click)="getTasks()">Get Tasks</button>
+
+        <div class="table-bordered">
+            <div class="row">
+                <div class="col-md-3">Id</div>
+                <div class="col-md-3">Owner</div>
+                <div class="col-md-3">Text</div>
+                <div class="col-md-3">DateModifeid</div>
+            </div>
+        </div>
+
+            <div class="row" *ngFor="let task of tasks">
+                <div class="col-md-3">{{ task.Id }}</div>
+                <div class="col-md-3">{{ task.Owner }}</div>
+                <div class="col-md-3">{{ task.Text }}</div>
+                <div class="col-md-3">{{ task.DateModified }}</div>
+            </div>
+
+    </div>
+
+</div>
