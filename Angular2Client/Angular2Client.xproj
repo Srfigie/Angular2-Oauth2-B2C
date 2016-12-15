@@ -15,4 +15,9 @@
     <SchemaVersion>2.0</SchemaVersion>
   </PropertyGroup>
   <Import Project="$(VSToolsPath)\DotNet.Web\Microsoft.DotNet.Web.targets" Condition="'$(VSToolsPath)' != ''" />
+  <UsingTask TaskName="TransformXml" AssemblyFile="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Web\Microsoft.Web.Publishing.Tasks.dll" />
+  <Target Name="AfterBuild" Condition="Exists('web.$(Configuration).config')">
+    <!--Generate transformed config in the output directory-->
+    <TransformXml Source="web.config" Destination="$(OutputPath)web.config" Transform="web.$(Configuration).config" />
+  </Target>
 </Project>

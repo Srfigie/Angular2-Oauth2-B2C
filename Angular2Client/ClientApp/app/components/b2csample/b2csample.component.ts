@@ -9,7 +9,7 @@ import { Http, Headers } from '@angular/http';
 })
 export class B2cSampleComponent implements OnInit{
 
-    
+    private apiBaseURL = "https://b2cOauth2-API.azurewebsites.net";
     constructor(private http: Http, private authService: AuthService) {
         
     }
@@ -56,7 +56,7 @@ export class B2cSampleComponent implements OnInit{
     public getTasks() {
         let authHeader = new Headers();
         this.setHeaders(authHeader);
-        this.http.get('http://localhost:30537/api/Tasks', {
+        this.http.get(this.apiBaseURL + '/api/Tasks', {
             headers: authHeader
         }).subscribe(result => {
             this.tasks = result.json();
@@ -72,7 +72,7 @@ export class B2cSampleComponent implements OnInit{
         };
         let authHeader = new Headers();
         this.setHeaders(authHeader);
-        this.http.post('http://localhost:30537/api/Tasks', bodyObj, {
+        this.http.post(this.apiBaseURL + '/api/Tasks', bodyObj, {
             headers: authHeader
         }).subscribe(result => {
             this.statusText = result.status.toString();

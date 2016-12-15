@@ -18,7 +18,8 @@ export class AuthService {
     private editProfileName = "B2C_1_pePolicy";
     private clientId = "1ef086a2-9e8b-45cf-8e0f-8ed59fbc6e6c";
     private tennantId = "9e3eb95a-740b-4ae7-a04d-dcbbe64cdf0a"
-    private redirectUri = "http://localhost:32404/b2csample";
+    //private redirectUri = "http://localhost:32404/b2csample";
+    private redirectUri = "https://b2cOauth2-client.azurewebsites.net/b2csample"; 
     /*
         END OF CONFIG AREA
     */
